@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -334044950, guid: f776263bebe44eec80d7c60294a34541, type: 3}
+  m_Name: ABBundleCollector_WebGL
+  m_EditorClassIdentifier: 
+  platform: 3
+  bundles:
+  - {fileID: 102900000, guid: 2a5bdfd1f853b574aab087ee279acd08, type: 3}
+  - {fileID: 102900000, guid: 3bafa04f838efff498a7c078183e8a33, type: 3}
+  - {fileID: 102900000, guid: 7aecf418b2cb9dc4a8ad9712fd6433e6, type: 3}
+  - {fileID: 102900000, guid: 0735c275001a2c84dafdb30deced5d8d, type: 3}
+  - {fileID: 102900000, guid: 55380a79652597742aac70415adb31d4, type: 3}
+  - {fileID: 102900000, guid: d0234ba368eeec9418390da711bfdad0, type: 3}
+  - {fileID: 102900000, guid: 990f5c2df70993f4987a388ca178996a, type: 3}
