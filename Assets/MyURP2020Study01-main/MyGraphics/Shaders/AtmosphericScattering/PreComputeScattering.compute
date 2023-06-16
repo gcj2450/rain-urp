@@ -1,0 +1,188 @@
+#pragma kernel CSIntegrateCPDensity
+#pragma kernel CSSunOnSurface
+#pragma kernel CSInScattering
+#pragma kernel CSAmbient
+
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "InScattering.hlsl"
+
+#define SAMPLECOUNT_DENSITY 256
+#define SAMPLECOUNT_INSCATTERING 512
+
+// CP Particle Density
+RWTexture2D<float2> _RWIntegralCPDensityLUT;
+
+// Sun On Surface
+RWTexture2D<float3> _RWSunOnSurfaceLUT;
+
+// InScattering
+RWTexture2D<float3> _RWInScatteringLUT;
+Texture2D<float3> _InScatteringLUT;
+
+// Ambient
+RWTexture2D<float3> _RWAmbientLUT;
+Texture2D<float3> _RWHemiSphereRandomNormlizedVecLUT;
+
+SamplerState _Sampler_Trilinear_Clamp;
+SamplerState _Sampler_Point_Clamp;
+
+
+float2 ComputeDensity(float3 rayStart, float3 rayDir)
+{
+    float3 planetCenter = float3(0, -_PlanetRadius, 0);
+
+
+    float2 intersection = RaySphereIntersection(rayStart, rayDir, planetCenter, _PlanetRadius);
+    if (intersection.x > 0)
+    {
+        // 与planet相交  写入最高的强度
+        return 1e+20;
+    }
+
+    intersection = RaySphereIntersection(rayStart, rayDir, planetCenter, _PlanetRadius + _AtmosphereHeight);
+    float3 rayEnd = rayStart + rayDir * intersection.y;
+
+    //计算单独的射线
+    float stepCount = SAMPLECOUNT_DENSITY;
+    float3 step = (rayEnd - rayStart) / stepCount;
+    float stepSize = length(step);
+    float2 density = 0;
+
+    for (float s = 0.5; s < stepCount; s += 1.0)
+    {
+        float3 position = rayStart + step * s;
+        float height = abs(length(position - planetCenter) - _PlanetRadius);
+        float2 localDensity = ParticleDensity(height, _DensityScaleHeight);
+
+        density += localDensity * stepSize;
+    }
+
+    return density;
+}
+
+//PreComputeDensity
+//计算高度产生的系数
+//----------------------------------
+
+[numthreads(8, 8, 1)]
+void CSIntegrateCPDensity(uint3 id:SV_DispatchThreadID)
+{
+    //GetDimensions  得到图片尺寸
+    int w, h;
+    _RWIntegralCPDensityLUT.GetDimensions(w, h);
+
+    float cosAngle01 = (float)id.x / w;
+    float height01 = (float)id.y / h;
+
+    float cosAngle = cosAngle01 * 2 - 1;
+    float sinAngle = sqrt(1 - saturate(cosAngle * cosAngle));
+    float height = lerp(0, _AtmosphereHeight, height01);
+
+    float3 rayStart = float3(0, height, 0);
+    float3 rayDir = float3(sinAngle, cosAngle, 0);
+
+    _RWIntegralCPDensityLUT[id.xy] = ComputeDensity(rayStart, rayDir);
+}
+
+//PrecomputeSunOnSurface
+//计算太阳产生的系数 跟高度系数相关
+//----------------------------------
+
+float3 Transmittance(float cosAngle01, float height01)
+{
+    float2 particleDensityCP = _IntegralCPDensityLUT.SampleLevel(_Sampler_Trilinear_Clamp
+                                                                 , float2(cosAngle01, height01), 0.0).xy;
+    float3 trCP = particleDensityCP.x * _ExtinctionR;
+    float3 tmCP = particleDensityCP.y * _ExtinctionM;
+    return exp(-(trCP + tmCP));
+}
+
+float3 ComputeSunOnSurface(float cosAngle01, float height01)
+{
+    return _LightFromOuterSpace * Transmittance(cosAngle01, height01);
+}
+
+[numthreads(8, 8, 1)]
+void CSSunOnSurface(uint3 id:SV_DispatchThreadID)
+{
+    int w, h;
+    _RWSunOnSurfaceLUT.GetDimensions(w, h);
+
+    float cosAngle01 = (float)id.x / w;
+    float height01 = (float)id.y / h;
+
+    _RWSunOnSurfaceLUT[id.xy] = ComputeSunOnSurface(cosAngle01, height01);
+}
+
+//PreCompute InScattering
+//在半空点 计算大气散射
+//----------------------------------
+[numthreads(8,1,1)]
+void CSInScattering(uint3 id:SV_DispatchThreadID)
+{
+    int w, h;
+    _RWInScatteringLUT.GetDimensions(w, h);
+    float cosViewAngle01 = (float)id.x / h;
+    float cosSunAngle01 = (float)id.y / w;
+
+    float3 planetCenter = float3(0, -_PlanetRadius, 0);
+
+    float3 rayStart = float3(0, _SurfaceHeight, 0);
+    float cosSunAngle = cosSunAngle01 * 2 - 1;
+    float sinSunAngle = 1 - sqrt(cosSunAngle * cosSunAngle);
+    float3 lightDir = float3(sinSunAngle, cosSunAngle, 0);
+
+    float cosViewAngle = cosViewAngle01 * 2 - 1;
+    float sinViewAngle = 1 - sqrt(cosViewAngle * cosViewAngle);
+    float3 rayDir = float3(sinViewAngle, cosViewAngle, 0);
+
+    float2 intersection = RaySphereIntersection(rayStart, rayDir, planetCenter, _PlanetRadius + _AtmosphereHeight);
+    float rayLength = intersection.y;
+
+    intersection = RaySphereIntersection(rayStart, rayDir, planetCenter, _PlanetRadius);
+    if (intersection.x >= 0)
+    {
+        rayLength = min(rayLength, intersection.x);
+    }
+
+    float3 extinction;
+    _RWInScatteringLUT[id.xy] = IntegrateInScattering(rayStart, rayDir, rayLength, planetCenter, 1, lightDir,
+                                                      SAMPLECOUNT_INSCATTERING, extinction);
+}
+
+
+
+//Precompute Ambient
+//利用随机角度 和 半空点的大气散射  生成ambient
+//----------------------------------
+float3 ComputeAmbient(float cosSunAngle01, int count)
+{
+    float3 total = float3(0, 0, 0);
+    for (int i = 0; i < count; i++)
+    {
+        float3 viewDir = _RWHemiSphereRandomNormlizedVecLUT.SampleLevel(_Sampler_Trilinear_Clamp,
+                                                                        float2((float)i / count, 0.5), 0.0).xyz;
+        float cosViewAngle = dot(viewDir, float3(0, 1, 0));
+
+        float3 inScattering = _InScatteringLUT.SampleLevel(_Sampler_Trilinear_Clamp,
+                                                           float2(cosViewAngle * 0.5 + 0.5, cosSunAngle01), 0).xyz;
+
+        total += cosViewAngle * inScattering;
+    }
+
+    total = TWO_PI * total / count;
+    return total;
+}
+
+[numthreads(8,1,1)]
+void CSAmbient(uint3 id:SV_DispatchThreadID)
+{
+    int w, h;
+    _RWAmbientLUT.GetDimensions(w, h);
+
+    float cosAngle01 = (float)id.x / w;
+
+    _RWHemiSphereRandomNormlizedVecLUT.GetDimensions(w, h);
+    int count = w;
+    _RWAmbientLUT[int2(id.x, 0)] = ComputeAmbient(cosAngle01, count);
+}

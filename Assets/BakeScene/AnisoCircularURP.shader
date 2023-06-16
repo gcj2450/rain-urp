@@ -210,6 +210,60 @@ Shader "Hair Shader/mobile/AnisoCircularURP"
 			};
 			ENDHLSL
 		}
+
+        Pass 
+        {
+            Name "ShadowCaster"
+            Tags{ "LightMode" = "ShadowCaster" }
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+            struct a2v {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+                float3 normal : NORMAL;
+            };
+            struct v2f {
+                float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            float3 _LightDirection;
+            float4 _ShadowBias;
+            half4 _MainLightShadowParams;
+
+            float3 ApplyShadowBias(float3 positionWS, float3 normalWS, float3 lightDirection)
+            {
+                float invNdotL = 1.0 - saturate(dot(lightDirection, normalWS));
+                float scale = invNdotL * _ShadowBias.y;
+                // normal bias is negative since we want to apply an inset normal offset
+                positionWS = lightDirection * _ShadowBias.xxx + positionWS;
+                positionWS = normalWS * scale.xxx + positionWS;
+                return positionWS;
+            }
+            v2f vert(a2v v)
+            {
+                v2f o = (v2f)0;
+                float3 worldPos = TransformObjectToWorld(v.vertex.xyz);
+                half3 normalWS = TransformObjectToWorldNormal(v.normal);
+                worldPos = ApplyShadowBias(worldPos, normalWS, _LightDirection);
+                o.vertex = TransformWorldToHClip(worldPos);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                return o;
+            }
+            half4 frag(v2f i) : SV_Target
+            {
+				#if _ALPHATEST_ON
+				half4 col = tex2D(_MainTex, i.uv);
+				clip(col.a - 0.001);
+				#endif
+                return 0;
+            }
+            ENDHLSL
+        }
+
 	}
 
 	FallBack "Transparent/Cutout/VertexLit"

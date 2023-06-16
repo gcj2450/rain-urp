@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1646074994844089296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd5a5a81b8ef9444bc6effd9305ebd3, type: 3}
+  m_Name: ImageProcessImageRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  renderPassEvent: 550
+  sharpenV1Shader: {fileID: 4800000, guid: 937f0b44aa6b92746af626f817ffee62, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
+  m_Name: XPostProcessingRenderPipelineAsset_Renderer
+  m_EditorClassIdentifier: 
+  m_RendererFeatures:
+  - {fileID: 2322216587504152847}
+  m_RendererFeatureMap: 0f71b4c5ae2b3a20
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
+  shaders:
+    blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    screenSpaceShadowPS: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd, type: 3}
+    samplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
+    tileDepthInfoPS: {fileID: 0}
+    tileDeferredPS: {fileID: 0}
+    stencilDeferredPS: {fileID: 4800000, guid: e9155b26e1bc55942a41e518703fe304, type: 3}
+    fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    materialErrorPS: {fileID: 4800000, guid: 5fd9a8feb75a4b5894c241777f519d4e, type: 3}
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_TransparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_DefaultStencilState:
+    overrideStencilState: 0
+    stencilReference: 0
+    stencilCompareFunction: 8
+    passOperation: 2
+    failOperation: 0
+    zFailOperation: 0
+  m_ShadowTransparentReceive: 1
+  m_RenderingMode: 0
+  m_AccurateGbufferNormals: 0
+--- !u!114 &2322216587504152847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29727c474c43e44e8c5bd5729eb1fa9, type: 3}
+  m_Name: XPostProcessingFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 550
+  assets:
+    blitShader: {fileID: 4800000, guid: 4a3e32a72ff3a5f43b5341cbe14bb6c3, type: 3}
+    scharrShader: {fileID: 4800000, guid: 19f1d2d8ea593a44b88077969014f799, type: 3}
+    imageBlockShader: {fileID: 4800000, guid: 7ecf6080cb0f52e4d88011b914239937, type: 3}
+    imageBlockV2Shader: {fileID: 4800000, guid: 66fd1b444a93d1441a00a7f44d5540c3, type: 3}
+    imageBlockV4Shader: {fileID: 4800000, guid: f8c4744c36c313e4d832ef5686ccaed5, type: 3}
+    rgbSplitV5Shader: {fileID: 4800000, guid: af83bacd27ac36e4284757dcb53e35c0, type: 3}
+    waveJitterShader: {fileID: 4800000, guid: 5f736a6378987134f880d7a3b6206654, type: 3}
+    lineBlockShader: {fileID: 4800000, guid: 62dd611500a29a142bc0fc611e32ad3c, type: 3}
+    auroraVignetteShader: {fileID: 4800000, guid: a9afeeb32721f604c82c9f71ea0e48cf, type: 3}
+    rapidVignetteShader: {fileID: 4800000, guid: a5a3902fa0dfd7047844b2e78f0ffffb, type: 3}
+    sharpenV1Shader: {fileID: 4800000, guid: 937f0b44aa6b92746af626f817ffee62, type: 3}
+    sharpenV2Shader: {fileID: 4800000, guid: a6630745613e95b4b98d82db24cdd9b8, type: 3}
+    sharpenV3Shader: {fileID: 4800000, guid: 30d29ab276ac4834891b939da2d0c1ba, type: 3}

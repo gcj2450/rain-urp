@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: hiar2
-  m_Shader: {fileID: 4800000, guid: de33fc6084a90c243bf1211a477b0e41, type: 3}
+  m_Shader: {fileID: 4800000, guid: ada05dd643b410b40975e68397d09260, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
