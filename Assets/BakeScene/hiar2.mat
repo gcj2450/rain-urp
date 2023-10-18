@@ -92,7 +92,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AnisoOffset: -0.27
+    - _AnisoOffset: 0.02
     - _Atten: 0.08
     - _Blend: 0
     - _BumpScale: 1
