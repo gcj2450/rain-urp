@@ -77,9 +77,10 @@ Shader "Custom/URPStandard"
 			float _NormalIntensity;
 			float _Metallic;
 			float _Gloss;
+			float4 _ShadowMainColor;
+
 			CBUFFER_END
 
-			float4 _ShadowMainColor;
 
 			sampler2D _NormalMap;
 			sampler2D _MainTeture;

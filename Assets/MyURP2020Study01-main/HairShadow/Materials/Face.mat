@@ -15,14 +15,16 @@ MonoBehaviour:
   version: 4
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Face
   m_Shader: {fileID: 4800000, guid: 46ccbe3dabb97ff449b73a37f13431da, type: 3}
-  m_ShaderKeywords: _IsFace
+  m_ValidKeywords:
+  - _IsFace
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -33,7 +35,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d08eb7977d0801c4d968221768487281, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -88,12 +90,13 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CelShadeMidPoint: 0.5
-    - _CelShadeSmoothness: 0.1
+    - _CelShadeMidPoint: 0.565
+    - _CelShadeSmoothness: 0.37
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -106,17 +109,17 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _HairShadowDistace: 1
-    - _HeightCorrectMax: 1.6
-    - _HeightCorrectMin: 1.51
+    - _HeightCorrectMax: 1.4
+    - _HeightCorrectMin: 6.83
     - _IsFace: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutLineThickness: 10
+    - _OutLineThickness: 10.58
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimSmoothness: 10
-    - _RimStrength: 0.1
+    - _RimSmoothness: 4.94
+    - _RimStrength: 0.483
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

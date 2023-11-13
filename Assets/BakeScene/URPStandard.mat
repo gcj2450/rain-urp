@@ -34,11 +34,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Gloss: 0.614
-    - _Metallic: 0.582
-    - _NormalIntensity: 0.76
+    - _Gloss: 0.355
+    - _Metallic: 0.297
+    - _NormalIntensity: 0.75
     m_Colors:
-    - _Emission: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 0}
     - _ShadowMainColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

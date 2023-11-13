@@ -70,7 +70,7 @@ Shader "MyRP/LitSamples/05_BakedIndirect"
 				surfaceData.alpha = 1.0;
 			}
 			
-			half4 BakeIndirectLighting(CustomSurfaceData surfaceData, LightingData lightingData)
+			half4 BakeIndirectLighting(CustomSurfaceData surfaceData, CustomLightingData lightingData)
 			{
 				return half4(surfaceData.diffuse + lightingData.environmentLighting, surfaceData.alpha);
 			}

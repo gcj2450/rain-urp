@@ -16,7 +16,11 @@ Shader "Universal Render Pipeline/URP Mobile HairShader"
 	
 	SubShader
 	{
-		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="TransparentCutout" "RenderPipeline" = "UniversalPipeline"}
+		Tags {
+			"Queue"="Transparent"
+			"IgnoreProjector"="True" 
+		"RenderType"="TransparentCutout"
+			"RenderPipeline" = "UniversalPipeline"}
 
 		Pass
 		{

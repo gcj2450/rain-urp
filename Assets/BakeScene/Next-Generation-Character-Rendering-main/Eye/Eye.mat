@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Eye
+  m_Shader: {fileID: 4800000, guid: aec6a8a2c7531f04d93940e3a4132b3d, type: 3}
+  m_ValidKeywords:
+  - _AdditionalLights
+  - _EnableShadow
+  - _EyeRefraction
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _EyeNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisNormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisPlaneDstTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScleraTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AdditionalLights: 1
+    - _DepthScale: 1
+    - _EnableShadow: 1
+    - _EyeRefraction: 1
+    - _FlattenNormal: 0.7
+    - _Fresnel: 0.5
+    - _Hardness: 0.2
+    - _IoR: 1.2
+    - _IrisBrightness: 0.7
+    - _IrisRoughness: 0.004
+    - _IrisUVRadius: 0.15
+    - _LimbusDarkIntensity: 1.5
+    - _LimbusDarkWidth: 2
+    - _LimbusWidth: 0.08
+    - _MaskRadius: 0.18
+    - _NormalUVScale: 0.9
+    - _PupilScale: 0.85
+    - _ScaleByCenter: 1
+    - _ScleraBrightness: 0.9
+    - _ScleraRoughness: 0.5
+    - _ShadowIntensity: 0.5
+    - _ShadowRadius: 0.21
+    - _test: 0.5
+    m_Colors:
+    - _CloudyIris: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

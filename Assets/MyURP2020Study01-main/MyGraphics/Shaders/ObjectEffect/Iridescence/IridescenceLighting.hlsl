@@ -99,7 +99,7 @@ inline void InitializeBRDFDataAdvanced(SurfaceDataAdvanced surfaceData, out Cust
     #ifdef _SPECULAR_SETUP
     half reflectivity = ReflectivitySpecular(surfaceData.specular);
     half oneMinusReflectivity = 1.0 - reflectivity;
-
+    outBRDFData = (CustomBRDFData)0;
     outBRDFData.diffuse = surfaceData.albedo * (half3(1.0h, 1.0h, 1.0h) - surfaceData.specular);
     outBRDFData.specular = surfaceData.specular;
 
