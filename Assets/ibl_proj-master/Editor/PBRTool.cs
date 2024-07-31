@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.IO;
 
-namespace Editor
+namespace PBRToolEditor
 {
     public class PBRTool
     {

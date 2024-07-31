@@ -81,7 +81,7 @@ Shader "URP/EyeWater"
                 float NoL = max(saturate(dot(L, N)), 0.0001);
                 float VoH = max(saturate(dot(V, normalize(V + L))), 0.0001);
 
-                float D = GGXNormalDistributionFunction(_Smoothness, NoH);
+                float D = GGXNormalDistributionFunction(NoH,_Smoothness);
                 float G = BeckmanGeometricShadowingFunction(NoV, NoL, _Smoothness);
 
                 float4 SpecularColor = float4(((D * G) / (NoV * NoL * 4)) * NoL * UNITY_PI * _SpecularColor.rgb, 1.0);

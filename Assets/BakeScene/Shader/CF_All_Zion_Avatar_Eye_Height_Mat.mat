@@ -1,0 +1,198 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4345472252376775633
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CF_All_Zion_Avatar_Eye_Height_Mat
+  m_Shader: {fileID: 4800000, guid: 02281459771f06e4396501259fbae466, type: 3}
+  m_ValidKeywords:
+  - _NORMALMAP
+  m_InvalidKeywords:
+  - _METALLICSPECGLOSSMAP
+  - _TOLINE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: d937e72d0f9798640b171d6d0c603075, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 04cad4a6cfce2934b8ac698b9c996ce3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CustomReflection:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EnvMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EyeDirection:
+        m_Texture: {fileID: 2800000, guid: cbffda998a1cfc84aa0e7300a759c32b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisColorMap:
+        m_Texture: {fileID: 2800000, guid: 0ec4d6cc844ee674e8d3bd7c12f1ed1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisNormalMap:
+        m_Texture: {fileID: 2800000, guid: bb2278d77e8bf1f4f8efe5005e22c24d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d937e72d0f9798640b171d6d0c603075, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatCap:
+        m_Texture: {fileID: 2800000, guid: 631aa814907190e4aaaf6652ea652d68, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: d219a339383215a42a7d2dcc3a1811f0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MidPlaneHeightMap:
+        m_Texture: {fileID: 2800000, guid: 3ef58e41df5f06b44ac916aa6abd1406, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SSSLUT:
+        m_Texture: {fileID: 2800000, guid: dea7735b088088a4b914bb12b3f3fe32, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScleraMap:
+        m_Texture: {fileID: 2800000, guid: d937e72d0f9798640b171d6d0c603075, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScleraNormalMap:
+        m_Texture: {fileID: 2800000, guid: 04cad4a6cfce2934b8ac698b9c996ce3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ALPHATEST_ON: 0
+    - _AlphaClip: 0
+    - _BaiduURP: 0
+    - _Blend: 0
+    - _BumpScale: 1
+    - _CorneaRoughness: 0.067
+    - _CorneaSpecular: 0.432
+    - _Cull: 0
+    - _CustomReflectionIntension: 0.25
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnvRotation: 0
+    - _EnvironmentReflections: 1
+    - _Expose: 1
+    - _ForgeLightSize: 1
+    - _ForgeSpeculer: 0
+    - _GlossMapScale: 0.396
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _IOR: 1.7
+    - _IrisBrightness: 1.41
+    - _IrisConcavityPow: 0.226
+    - _IrisConcavityScale: 1.87
+    - _IrisDepthScale: 0.1
+    - _IrisNormalStrength: 1
+    - _IrisNormalUVScale: 1
+    - _IrisRadius: 0.205
+    - _LimbusPow: 1.41
+    - _LimbusScale: 1.28
+    - _MatCapAccurate: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 0.747
+    - _OpenCustomReflection: 0
+    - _Parallax: 0.02
+    - _Power: 1.186
+    - _PupilScale: 1.173
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SHADOW_ALPHATEST_ON: 0
+    - _ScalebyCenter: 0.92
+    - _ScleraBrightness: 1.66
+    - _ScleraNormalStrength: 0.4
+    - _ScleraNormalUVScale: 1
+    - _ScleraRoughness: 1
+    - _ScleraSpecular: 0.57
+    - _Smoothness: 0.848
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _ToLine: 1
+    - _UVSec: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ForgeLight: {r: 1, g: 1, b: 1, a: 0}
+    - _IrisColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightDirection: {r: -1, g: 0.2, b: 3.4, a: 0}
+    - _ScleraColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - custom_SHAb: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHAg: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHAr: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHBb: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHBg: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHBr: {r: 0, g: 0, b: 0, a: 0}
+    - custom_SHC: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

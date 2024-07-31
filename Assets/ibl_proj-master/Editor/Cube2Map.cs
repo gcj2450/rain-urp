@@ -1,8 +1,9 @@
-﻿using System;
+﻿using PBRToolEditor;
+using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace Cube2MapEditor
 {
     public class Cube2Map : EditorWindow
     {

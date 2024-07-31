@@ -216,7 +216,7 @@ float4 CalculateSpecular(VertexOutput vertexOutput, float3 normalToCalculate, fl
     NoL = max(saturate(dot(tangentLightDir, normalToCalculate)), 0.0001);
     VoH = max(saturate(dot(vertexOutput.tangentViewDir, normalize(vertexOutput.tangentViewDir + tangentLightDir))), 0.0001);
 
-    // float D = GGXNormalDistributionFunction(roughness, NoH);
+    // float D = GGXNormalDistributionFunction(NoH,roughness);
     // float G = BeckmanGeometricShadowingFunction(NoV, NoL, roughness);
     // float F = fresnelReflectance(normalize(vertexOutput.tangentViewDir + tangentLightDir), vertexOutput.tangentViewDir, 0.028);
 

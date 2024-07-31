@@ -40,10 +40,10 @@ Shader "Custom/HairLit"
         // Blending state
         [HideInInspector] _Surface("__surface", Float) = 0.0
         [HideInInspector] _Blend("__blend", Float) = 0.0
-        _Cull("__cull", Float) = 0
+        [HideInInspector]_Cull("__cull", Float) = 0
         [HideInInspector] [ToggleUI] _AlphaClip("__clip", Float) = 0.0
-        [HideInInspector] _SrcBlend("__src", Float) = 1.0
-        [HideInInspector] _DstBlend("__dst", Float) = 0.0
+        /* _SrcBlend("__src", Float) = 1.0
+        _DstBlend("__dst", Float) = 0.0*/
         [HideInInspector] _ZWrite("__zw", Float) = 1.0
 
         [HideInInspector] [ToggleUI] _ReceiveShadows("Receive Shadows", Float) = 1.0
@@ -79,7 +79,7 @@ Shader "Custom/HairLit"
             Name "ForwardLit"
             Tags{"LightMode" = "UniversalForward"}
 
-            Blend[_SrcBlend][_DstBlend]
+            Blend SrcAlpha OneMinusSrcAlpha
             ZWrite[_ZWrite]
             Cull[_Cull]
 

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace F4VectorDrawerEditor
 {
     public class F4VectorDrawer : MaterialPropertyDrawer
     {

@@ -193,3 +193,61 @@ float4 FragBase(VertexOutput vertexOutput) : SV_Target
 
     return float4((Diffuse) * mainLight.color, 1.0);
 }
+
+
+//https://blog.csdn.net/qq_30100043/article/details/127065834
+//half4 Fragment(Varyings input, float face : VFACE) : SV_TARGET
+//{
+//    UNITY_SETUP_INSTANCE_ID(input);
+//
+//    HairSurfaceData sfd = InitializeSurfaceData(input.uv);
+//
+//    half3 V = SafeNormalize(input.viewDirWS);
+//    half3 N = input.normalWS.xyz;
+//    half3 T = input.tangentWS.xyz;
+//    float sgn = input.tangentWS.w;      // should be either +1 or -1
+//    half3 B = sgn * cross(input.normalWS.xyz, input.tangentWS.xyz);
+//
+//    N = TransformTangentToWorld(sfd.normalTS, half3x3(T, B, N));
+//    N = NormalizeNormalPerPixel(N);
+//    // N = face > 0 ? N : - N;
+//
+//    Light mainLight = GetMainLight();
+//    half3 L = mainLight.direction;
+//    half3 LightColor = mainLight.color;
+//    half atten = mainLight.shadowAttenuation;
+//
+//    //----------------------------------Direct Diffuse 直接光漫反射----------------------------------
+//    half diffTerm = max(0.0, dot(N, L));
+//    half halfLambert = (diffTerm + 1.0) * 0.5; //让主光源也影响一些间接光的效果
+//    half diffuse = saturate(lerp(0.25, 1.0, diffTerm * atten));
+//    half3 directDiffuse = diffuse * LightColor * sfd.albedo;
+//
+//    //----------------------------------Direct Specular 直接光镜面反射----------------------------------
+//    half2 anisoUV = input.uv * _AnsioMap_ST.xy + _AnsioMap_ST.zw;
+//    half anisoNoise = SAMPLE_TEXTURE2D(_AnsioMap, sampler_AnsioMap, anisoUV).r - 0.5;
+//    half3 H = normalize(L + V); //半角向量
+//
+//    //spec1
+//    float3 specColor1 = _SpecColor1.rgb * sfd.albedo * _SpecColor1.a * atten * LightColor;
+//    float3 t1 = ShiftTangent(B, N, _SpecOffset1 + anisoNoise * _SpecNoise1);
+//    float3 specular1 = specColor1 * max(D_KajiyaKay(t1, H, _SpecShininess1), 0.0);
+//
+//    //spec2
+//    float3 specColor2 = _SpecColor2.rgb * sfd.albedo * _SpecColor2.a * atten * LightColor;
+//    float3 t2 = ShiftTangent(B, N, _SpecOffset2 + anisoNoise * _SpecNoise2);
+//    float3 specular2 = specColor2 * max(D_KajiyaKay(t2, H, _SpecShininess2), 0.0);
+//
+//    half3 directSpecular = specular1 + specular2;
+//
+//    //环境光 漫反射
+//    half3 env = SampleSH(N) * sfd.albedo;
+//
+//    //环境光 镜面反射
+//    half3 reflectVector = reflect(-V, N);
+//    half3 indirectSpecular = GlossyEnvironmentReflection(reflectVector, _Roughness, 1.0) * sfd.albedo;
+//
+//    half3 color = directDiffuse + directSpecular + env + indirectSpecular + sfd.emission;
+//    // color.rgb = diffTerm;
+//    return half4(color, sfd.alpha);
+//}

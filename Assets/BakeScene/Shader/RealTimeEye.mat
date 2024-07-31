@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RealTimeEye
+  m_Shader: {fileID: 4800000, guid: 02281459771f06e4396501259fbae466, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _EyeDirection:
+        m_Texture: {fileID: 2800000, guid: cbffda998a1cfc84aa0e7300a759c32b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisColorMap:
+        m_Texture: {fileID: 2800000, guid: 0ec4d6cc844ee674e8d3bd7c12f1ed1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IrisNormalMap:
+        m_Texture: {fileID: 2800000, guid: bb2278d77e8bf1f4f8efe5005e22c24d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MidPlaneHeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SSSLUT:
+        m_Texture: {fileID: 2800000, guid: ab74f28ec7f19f442991af14eae107bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScleraMap:
+        m_Texture: {fileID: 2800000, guid: d937e72d0f9798640b171d6d0c603075, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScleraNormalMap:
+        m_Texture: {fileID: 2800000, guid: 04cad4a6cfce2934b8ac698b9c996ce3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CorneaRoughness: 0.067
+    - _CorneaSpecular: 0.432
+    - _EnvRotation: 0
+    - _ForgeLightSize: 1
+    - _ForgeSpeculer: 0
+    - _IOR: 1.7
+    - _IrisBrightness: 1.41
+    - _IrisConcavityPow: 0.226
+    - _IrisConcavityScale: 1.87
+    - _IrisDepthScale: 0.1
+    - _IrisNormalStrength: 1
+    - _IrisNormalUVScale: 1
+    - _IrisRadius: 0.205
+    - _LimbusPow: 1.41
+    - _LimbusScale: 1.28
+    - _PupilScale: 1.173
+    - _ScalebyCenter: 0.92
+    - _ScleraBrightness: 1.66
+    - _ScleraNormalStrength: 0.4
+    - _ScleraNormalUVScale: 1
+    - _ScleraRoughness: 1
+    - _ScleraSpecular: 0.57
+    m_Colors:
+    - _ForgeLight: {r: 1, g: 1, b: 1, a: 0}
+    - _IrisColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ScleraColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_BuildTextureStacks: []
