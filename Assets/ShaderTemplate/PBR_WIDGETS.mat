@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PBR_WIDGETS
+  m_Shader: {fileID: 4800000, guid: e09ba49faf1b4b642ab6158f417b8a98, type: 3}
+  m_ValidKeywords:
+  - _BREATHING_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 2f2ed982af780134094c566570da2dab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 1e7fb291eaeddaa489f94419e425823c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 5f37fe991e88f6844aab4f9c9058d0d6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionMap:
+        m_Texture: {fileID: 8900000, guid: 1cde0e200e792cb4491204276a656490, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _Breathing: 1
+    - _BreathingTime: 1.21
+    - _BumpScale: 1
+    - _Contrast: 0.97
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DITHER_OPEN: 0
+    - _DstBlend: 0
+    - _Metallic: 0.556
+    - _OcclusionStrength: 0.321
+    - _ReceiveShadowsOff: 0
+    - _ReflectionAmount: 0
+    - _RimAmount: 1
+    - _RimContrast: 4.19
+    - _RimIntensity: 1
+    - _Saturation: 1.08
+    - _Smoothness: 0.581
+    - _SrcBlend: 1
+    - _StencilComp: 0
+    - _StencilRef: 0
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimDirection: {r: 0.29, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
